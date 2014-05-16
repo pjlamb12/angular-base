@@ -1,3 +1,6 @@
+# Description
+This repo is a basic AngularJS app setup. Most of the set up comes from angular-seed, but I've added a few extra things to be installed, like jQuery, Bootstrap, and Angular-Bootstrap. I also added in a home page and a Bootstrap navigation across the top. The rest of this README page comes right from the angular-seed project.
+
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
@@ -22,12 +25,12 @@ You need git to clone the angular-seed repository. You can get it from
 We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone angular-seed
+### Clone angular-base
 
-Clone the angular-seed repository using [git][git]:
+Clone the angular-base repository using [git][git]:
 
 ```
-git clone https://github.com/angular/angular-seed.git
+git clone https://github.com/pjlamb12/angular-base.git
 cd angular-seed
 ```
 
@@ -83,6 +86,7 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
         filters.js      --> custom angular filters
         services.js     --> custom angular services
       partials/             --> angular view partials (partial html templates)
+        nav.html
         partial1.html
         partial2.html
 
