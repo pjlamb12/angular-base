@@ -2,16 +2,31 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+var myApp = angular.module('myApp', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/'});
+  'myApp.view1'
+  // 'myApp.filters',
+  // 'myApp.services',
+  // 'myApp.directives',
+  // 'myApp.controllers'
+]);
+
+myApp.run(['$rootScope', '$state', '$stateParams', 
+ function($rootScope, $state, $stateParams){
+	$rootScope.$state = $state;
+	$rootScope.$stateParams = $stateParams;
 }]);
+
+myApp.config(function($urlRouterProvider){
+  $urlRouterProvider.otherwise('/');
+});
+
+myApp.controller('mainController', function($scope){
+
+});
+// config(['$routeProvider', function($routeProvider) {
+//   $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
+//   $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
+//   $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
+//   $routeProvider.otherwise({redirectTo: '/'});
+// }]);
