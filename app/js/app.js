@@ -4,6 +4,7 @@
 // Declare app level module which depends on filters, and services
 var myApp = angular.module('myApp', [
   'ngRoute',
+  'ui.router',
   'myApp.view1'
   // 'myApp.filters',
   // 'myApp.services',
