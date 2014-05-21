@@ -2,19 +2,12 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+describe('View1Controller', function(){
 
+  // it('should ....', inject(function($controller) {
+  //   //spec body
+  //   var view1Ctrl = $controller('View1Controller', { $scope: {} });
+  //   expect(view1Ctrl).toBeDefined();
+  // }));
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl1 = $controller('MyCtrl1', { $scope: {} });
-    expect(myCtrl1).toBeDefined();
-  }));
-
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl2 = $controller('MyCtrl2', { $scope: {} });
-    expect(myCtrl2).toBeDefined();
-  }));
 });
