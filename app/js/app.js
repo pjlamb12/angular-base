@@ -5,7 +5,10 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'ui.router',
-  'myApp.view1'
+  'myApp.home',
+  'myApp.view1',
+  'myApp.view2',
+  'myApp.nested'
   // 'myApp.filters',
   // 'myApp.services',
   // 'myApp.directives',

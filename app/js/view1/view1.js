@@ -10,4 +10,6 @@ angular.module('myApp.view1',
 })
 .controller('View1Controller', function($scope){
 	$scope.hello = "Hello!";
+
+	console.log("View 1 ");
 });
