@@ -7,7 +7,7 @@ angular.module('myApp.controllers', [])
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 
-  .controller('ChatCtrl', ['$scope', 'syncData', function($scope, syncData) {
+  .controller('ChatCtrl', ['$scope', 'syncData', function($scope, syncData, $firebase) {
       $scope.newMessage = null;
 
       // constrain number of messages by limit into syncData
