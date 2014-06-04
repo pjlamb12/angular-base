@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <style>
     [ng-cloak] {
       display: none;
     }
   </style>
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
   <script>
     // include angular loader, which allows the files to load in any order
-    //@@NG_LOADER_START@@
-    // You need to run `npm run update-index-async` to inject the angular async code here
-    //@@NG_LOADER_END@@
+    /*
+     AngularJS v1.0.7
+     (c) 2010-2012 Google, Inc. http://angularjs.org
+     License: MIT
+    */
+    (function(i){'use strict';function d(c,b,e){return c[b]||(c[b]=e())}return d(d(i,"angular",Object),"module",function(){var c={};return function(b,e,f){e&&c.hasOwnProperty(b)&&(c[b]=null);return d(c,b,function(){function a(a,b,d){return function(){c[d||"push"]([a,b,arguments]);return g}}if(!e)throw Error("No module: "+b);var c=[],d=[],h=a("$injector","invoke"),g={_invokeQueue:c,_runBlocks:d,requires:e,name:b,provider:a("$provide","provider"),factory:a("$provide","factory"),service:a("$provide","service"),
+    value:a("$provide","value"),constant:a("$provide","constant","unshift"),filter:a("$filterProvider","register"),controller:a("$controllerProvider","register"),directive:a("$compileProvider","directive"),config:h,run:function(a){d.push(a);return this}};f&&h(f);return g})}})})(window);
+
 
     // include a third-party async loader library
     /*!
@@ -28,30 +30,46 @@
 
     // load all of the dependencies asynchronously.
     $script([
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'js/app.js',
-      'js/services.js',
-      'js/controllers.js',
-      'js/filters.js',
-      'js/directives.js'
+        'https://cdn.firebase.com/v0/firebase.js',
+        'https://cdn.firebase.com/v0/firebase-simple-login.js',
+        'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js'
     ], function() {
-      // when all is done, execute bootstrap angular application
-      angular.bootstrap(document, ['myApp']);
+        $script([
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js',
+            'https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.js',
+            'js/app.js',
+            'js/config.js',
+            'js/controllers.js',
+            'js/directives.js',
+            'js/filters.js',
+            'js/routes.js',
+            'js/services.js',
+            'js/service.firebase.js',
+            'js/service.login.js',
+            'js/module.routeSecurity.js',
+            'js/module.waitForAuth.js'
+        ], function() {
+            // when all is done, execute bootstrap angular application
+            angular.bootstrap(document, ['myApp']);
+        })
     });
   </script>
   <title>My AngularJS App</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body ng-cloak>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-cloak-auth class="hide">
 
-  <div ng-view></div>
+    <ul class="menu">
+        <li><a href="#/home">home</a></li>
+        <li><a href="#/chat">chat</a></li>
+        <li ng-show-auth="logout,error"><a href="#/login">login</a></li>
+        <li ng-show-auth="login"><a href="#/account">account</a></li>
+    </ul>
 
-  <div>Angular seed app: v<span app-version></span></div>
+
+    <div ng-view></div>
+
+    <div>Angular seed app: v<span app-version></span></div>
 
 </body>
 </html>
