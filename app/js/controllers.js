@@ -7,20 +7,26 @@ angular.module('myApp.controllers', ['firebase'])
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 
-  .controller('ChatCtrl', ['$scope', 'syncData', '$firebase', function($scope, syncData, $firebase) {
+  .controller('ChatCtrl', ['$scope', 'syncData', '$firebase', '$firebaseSimpleLogin', function($scope, syncData, $firebase, $firebaseSimpleLogin){
       $scope.newMessage = null;
 
       // constrain number of messages by limit into syncData
       // add the array into $scope.messages
       $scope.messages = syncData('messages', 10);
-      var userRef = new Firebase("https://glowing-fire-3011.firebaseio.com/users");
-      $scope.users = $firebase(userRef);
-      console.log($scope.users.$getCurrentUser);
 
       // add new messages to the list
       $scope.addMessage = function() {
          if( $scope.newMessage ) {
-            $scope.messages.$add({text: $scope.newMessage});
+            var newMessage = $scope.newMessage;
+            var userRef = new Firebase("https://glowing-fire-3011.firebaseio.com/");
+            $scope.userObj = $firebaseSimpleLogin(userRef);
+            $scope.userObj.$getCurrentUser().then(function(){
+               console.log("newMessage: ", newMessage)
+               var message = {text: newMessage, userId: $scope.userObj.user.id};
+               console.log(message);
+               $scope.messages.$add(message);
+            });
+            
             $scope.newMessage = null;
          }
       };
