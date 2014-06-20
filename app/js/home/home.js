@@ -11,5 +11,4 @@ angular.module('myApp.home',
 .controller('HomeController', function($scope){
 	$scope.hello = "Hello!";
 
-	console.log("Home");
 });

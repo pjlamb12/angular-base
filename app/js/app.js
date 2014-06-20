@@ -8,9 +8,12 @@ var myApp = angular.module('myApp', [
   'myApp.home',
   'myApp.view1',
   'myApp.view2',
-  'myApp.nested'
+  'myApp.nested',
+  'myApp.config',
+  'myApp.services',
+  'waitForAuth',
+  'routeSecurity'
   // 'myApp.filters',
-  // 'myApp.services',
   // 'myApp.directives',
   // 'myApp.controllers'
 ]);

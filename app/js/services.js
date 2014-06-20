@@ -1,9 +1,11 @@
-'use strict';
+(function() {
+   'use strict';
 
-/* Services */
+   /* Services */
 
+   angular.module('myApp.services', ['myApp.service.login', 'myApp.service.firebase'])
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+      // put your services here!
+      // .service('serviceName', ['dependency', function(dependency) {}]);
+
+})();
