@@ -9,5 +9,8 @@ angular.module('myApp.nested',
 			abstract: true,
 			url: '/nested',
 			templateUrl: 'js/nested/nested.html',
+			data: {
+				authRequired: true
+			}
 		});
 });

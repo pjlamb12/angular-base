@@ -5,11 +5,13 @@ angular.module('myApp.view1',
 		.state('view1',{
 			url: '/view1',
 			templateUrl: 'js/view1/view1.html',
-			controller: 'View1Controller'
+			controller: 'View1Controller',
+			data: {
+				authRequired: true
+			}
 		});
 })
-.controller('View1Controller', function($scope){
+.controller('View1Controller', function($scope, $location){
 	$scope.hello = "Hello!";
 
-	console.log("View 1 ");
 });

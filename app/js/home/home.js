@@ -5,10 +5,17 @@ angular.module('myApp.home',
 		.state('home',{
 			url: '/',
 			templateUrl: 'js/home/home.html',
-			controller: 'HomeController'
+			controller: 'HomeController',
+			data: {
+				authRequired: true
+			}
 		});
 })
-.controller('HomeController', function($scope){
+.controller('HomeController', function($scope, loginService, $state){
 	$scope.hello = "Hello!";
+
+	$scope.logout = function(event){
+		loginService.logout();
+	}
 
 });

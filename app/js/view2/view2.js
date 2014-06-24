@@ -5,7 +5,10 @@ angular.module('myApp.view2',
 		.state('view2',{
 			url: '/view2',
 			templateUrl: 'js/view2/view2.html',
-			controller: 'View2Controller'
+			controller: 'View2Controller',
+			data: {
+				authRequired: true
+			}
 		});
 })
 .controller('View2Controller', function($scope){

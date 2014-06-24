@@ -6,22 +6,26 @@ var myApp = angular.module('myApp', [
   'ngRoute',
   'ui.router',
   'myApp.home',
+  'myApp.login',
   'myApp.view1',
   'myApp.view2',
   'myApp.nested',
   'myApp.config',
   'myApp.services',
   'waitForAuth',
-  'routeSecurity'
+  'stateSecurity',
+  // 'routeSecurity',
   // 'myApp.filters',
   // 'myApp.directives',
   // 'myApp.controllers'
 ]);
 
-myApp.run(['$rootScope', '$state', '$stateParams', 
- function($rootScope, $state, $stateParams){
+myApp.run(['$rootScope', '$state', '$stateParams', 'loginService', 'FBURL', 
+ function($rootScope, $state, $stateParams, loginService, FBURL){
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
+  $rootScope.FBURL = FBURL;
+  $rootScope.auth = loginService.init();
 }]);
 
 myApp.config(function($urlRouterProvider){
